@@ -13,6 +13,20 @@ function loadImages() {
         images.push(filename.substring(8));
       });
       startSlideshow();
+    },
+    error: function(xhr, status, error) {
+      console.log("Error loading images: " + error);
+      // handle the error as appropriate for your application
+    },
+    statusCode: {
+      404: function() {
+        console.log("Image folder not found");
+        // handle the error as appropriate for your application
+      },
+      500: function() {
+        console.log("Server error");
+        // handle the error as appropriate for your application
+      }
     }
   });
 }
