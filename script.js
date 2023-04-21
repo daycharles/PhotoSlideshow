@@ -1,5 +1,5 @@
 const slideshow = $("#slideshow");
-const imageFolder = "images/";
+const imageFolder = "https://daycharles.github.io/PhotoSlideshow/images/";
 let imageIndex = 0;
 let images = [];
 
@@ -22,7 +22,7 @@ function getNextImage() {
   }
   
   const image = images[imageIndex];
-  const imageUrl = "https://daycharles.github.io/PhotoSlideshow/images" + image;
+  const imageUrl = imageFolder + image;
 ;
   
   const imgElement = $("<img>").attr("src", imageUrl).addClass("next");
