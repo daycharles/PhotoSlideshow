@@ -1,6 +1,6 @@
 const slideshow = $("#slideshow");
-// var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images";
-var imageFolder = "images/";
+var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images";
+// var imageFolder = "images/";
 let imageIndex = 0;
 let images = [];
 
