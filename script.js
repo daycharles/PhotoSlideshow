@@ -1,5 +1,6 @@
 const slideshow = $("#slideshow");
-var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images/";
+// var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images";
+var imageFolder = "images/";
 let imageIndex = 0;
 let images = [];
 
@@ -9,15 +10,11 @@ function loadImages() {
     success: function(data) {
       $(data).find("a:contains('.jpg'), a:contains('.jpeg'), a:contains('.png'), a:contains('.gif')").each(function() {
         const filename = $(this).attr("href");
-        images.push(filename);
+        images.push(filename.substring(8));
       });
       startSlideshow();
     }
   });
-}
-function getImageName(imageName){
-  var parts = imageName.split('/');
-  return parts[parts.length - 1];
 }
 
 function getNextImage() {
@@ -26,7 +23,7 @@ function getNextImage() {
   }
   
   const image = images[imageIndex];
-  const imageUrl = imageFolder + getImageName(image);
+  const imageUrl = imageFolder + image;
   
   const imgElement = $("<img>").attr("src", imageUrl).addClass("next");
   
