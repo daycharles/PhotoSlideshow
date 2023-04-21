@@ -22,7 +22,7 @@ function getNextImage() {
   }
   
   const image = images[imageIndex];
-  const imageUrl = "https://<username>.github.io/<repository-name>/images" + image;
+  const imageUrl = "https://daycharles.github.io/PhotoSlideshow/images" + image;
 ;
   
   const imgElement = $("<img>").attr("src", imageUrl).addClass("next");
