@@ -8,9 +8,11 @@ function loadImages() {
   $.ajax({
     url: imageFolder,
     success: function(data) {
-      $(data).find("a:contains('.jpg'), a:contains('.jpeg'), a:contains('.png'), a:contains('.gif')").each(function() {
+      $(data).find("a").each(function() {
         const filename = $(this).attr("href");
-        images.push(filename.substring(8));
+        if (/\.(jpg|jpeg|png|gif)$/i.test(filename)) {
+          images.push(filename.substring(8));
+        }
       });
       startSlideshow();
     },
@@ -37,7 +39,7 @@ function getNextImage() {
   }
   
   const image = images[imageIndex];
-  const imageUrl = "https://daycharles.github.io/PhotoSlideshow/images/CatLogo.png";
+  const imageUrl = imageFolder + image;
   
   const imgElement = $("<img>").attr("src", imageUrl).addClass("next");
   
@@ -72,7 +74,7 @@ function startSlideshow() {
   }, 5000);
 }
 
-// loadImages();
+loadImages();
 
 $(document).on("fullscreenchange", function() {
   if (document.fullscreenElement) {
