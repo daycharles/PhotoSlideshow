@@ -1,5 +1,5 @@
 const slideshow = $("#slideshow");
-var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images";
+var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images/";
 // var imageFolder = "images/";
 let imageIndex = 0;
 let images = [];
@@ -37,7 +37,7 @@ function getNextImage() {
   }
   
   const image = images[imageIndex];
-  const imageUrl = imageFolder + image;
+  const imageUrl = "https://daycharles.github.io/PhotoSlideshow/images/CatLogo.png";
   
   const imgElement = $("<img>").attr("src", imageUrl).addClass("next");
   
@@ -72,7 +72,7 @@ function startSlideshow() {
   }, 5000);
 }
 
-loadImages();
+// loadImages();
 
 $(document).on("fullscreenchange", function() {
   if (document.fullscreenElement) {
