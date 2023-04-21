@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+#slideshow img {
+  position: absolute;
+  max-width: 100%;
+  max-height: 90vh;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#slideshow img.active {
+  opacity: 1;
+}
+
+#fullscreen-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#uploader-button {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
