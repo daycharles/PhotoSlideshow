@@ -1,6 +1,5 @@
 const slideshow = $("#slideshow");
-var imageFolder = "https://daycharles.github.io/PhotoSlideshow/images/";
-// var imageFolder = "images/";
+var imageFolder = "images/";
 let imageIndex = 0;
 let images = [];
 
@@ -8,27 +7,11 @@ function loadImages() {
   $.ajax({
     url: imageFolder,
     success: function(data) {
-      $(data).find("a").each(function() {
+      $(data).find("a:contains('.jpg'), a:contains('.jpeg'), a:contains('.png'), a:contains('.gif')").each(function() {
         const filename = $(this).attr("href");
-        if (/\.(jpg|jpeg|png|gif)$/i.test(filename)) {
-          images.push(filename.substring(8));
-        }
+        images.push(filename.substring(8));
       });
       startSlideshow();
-    },
-    error: function(xhr, status, error) {
-      console.log("Error loading images: " + error);
-      // handle the error as appropriate for your application
-    },
-    statusCode: {
-      404: function() {
-        console.log("Image folder not found");
-        // handle the error as appropriate for your application
-      },
-      500: function() {
-        console.log("Server error");
-        // handle the error as appropriate for your application
-      }
     }
   });
 }
